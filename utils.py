@@ -115,17 +115,17 @@ class AverageMeterSet(object):
         for meter in self.meters.values():
             meter.reset()
 
-    def values(self, format_string='{}'):
-        return {format_string.format(name): meter.val for name, meter in self.meters.items()}
+    def values(self, format_string='{}', decimal_place=4):
+        return {format_string.format(name): round(meter.val, decimal_place) for name, meter in self.meters.items()}
 
-    def averages(self, format_string='{}'):
-        return {format_string.format(name): meter.avg for name, meter in self.meters.items()}
+    def averages(self, format_string='{}', decimal_place=4):
+        return {format_string.format(name): round(meter.avg, decimal_place) for name, meter in self.meters.items()}
 
-    def sums(self, format_string='{}'):
-        return {format_string.format(name): meter.sum for name, meter in self.meters.items()}
+    def sums(self, format_string='{}', decimal_place=4):
+        return {format_string.format(name): round(meter.sum, decimal_place) for name, meter in self.meters.items()}
 
-    def counts(self, format_string='{}'):
-        return {format_string.format(name): meter.count for name, meter in self.meters.items()}
+    def counts(self, format_string='{}', decimal_place=4):
+        return {format_string.format(name): round(meter.count, decimal_place) for name, meter in self.meters.items()}
 
 
 class AverageMeter(object):
