@@ -5,7 +5,6 @@ def set_template(args):
     elif args.template.startswith('train_bert'):
         args.mode = 'train'
 
-        args.dataset_code = input('Input ml-1m, ml-20m, kaggle: ')
         args.min_rating = 0
         args.min_uc = 5
         args.min_sc = 0
@@ -38,7 +37,6 @@ def set_template(args):
     elif args.template.startswith('train_albert'):
         args.mode = 'train'
 
-        args.dataset_code = input('Input ml-1m, ml-20m, kaggle: ')
         args.min_rating = 0
         args.min_uc = 5
         args.min_sc = 0
@@ -148,15 +146,3 @@ def set_template(args):
         args.vae_hidden_dim = 600
         args.vae_latent_dim = 200
         args.vae_dropout = 0.5
-
-    args.metric_ks = [5, 10, 20]
-    args.best_metric = 'NDCG@10'
-    args.device = 'cuda'
-    args.num_gpu = 2
-    args.device_idx = '0,1'
-    args.optimizer = 'Adam'
-    args.num_epochs = 300
-    batch = 1024
-    args.train_batch_size = batch
-    args.val_batch_size = batch
-    args.test_batch_size = batch
